@@ -18,13 +18,21 @@ const RedditPost = ({post}) => {
 
 const Reddit = () => {
 
+    const [posts, setPosts] = useState([])
     const [subreddit, SubredditDropdown] = useDropdown("Subreddit", "all", ["all", "askreddit"])
 
     async function requestPosts(){
       var reqURL = `https://www.reddit.com/r/${subreddit}/.json`
       console.log('getting posts')
 
-      const {subreddits} = await fetch(reqURL)
+      const response = await fetch(reqURL)
+      const json = await response.json()
+
+      console.log(json)
+
+      setPosts(json || [])
+
+      console.log(posts)
     }
 
     var post = {
@@ -288,7 +296,18 @@ const Reddit = () => {
     return (
       <div className="search-params">
 
-        <SubredditDropdown></SubredditDropdown>
+        <form
+          onSubmit = { e => {
+            e.preventDefault()
+            requestPosts()
+          }}
+        >
+
+          <SubredditDropdown></SubredditDropdown>
+          <button>Submit</button>
+        </form>
+
+        
 
         <RedditPost post={post}></RedditPost>
         <RedditPost post={post}></RedditPost>

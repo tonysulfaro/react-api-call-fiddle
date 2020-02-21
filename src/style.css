@@ -1,6 +1,8 @@
 body, html {
     font-family: sans-serif;
     margin: 0;
+    background-color: #212121;
+    color: white;
 }
 
 .container {
@@ -10,10 +12,12 @@ body, html {
 .post-container {
     margin: 1em 0;
     padding: 2em;
-    border: 1px solid grey;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px gray;
+    box-shadow: 2px 2px 5px black;
     transition: 0.2s ease-in-out;
+    background-color: rgb(53, 53, 53);
+    color: white;
 }
 
 .post-container:hover {
