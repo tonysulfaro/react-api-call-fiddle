@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import useDropdown from "./useDropdown";
-
-const RedditPost = ({post}) => {
-
-  return (
-    <a href={post.url} target="_blank" rel="noopener">
-      <div className="post-container">
-      <h2>{post.title}</h2>
-      <p><strong>/r/{post.subreddit}</strong></p>
-      <p>Socre: {post.score}</p>
-      <p>Comments: {post.num_comments}</p>
-    </div>
-    </a>
-  )
-}
+import Results from "./Results";
 
 const Reddit = () => {
 
@@ -23,16 +10,13 @@ const Reddit = () => {
 
     async function requestPosts(){
       var reqURL = `https://www.reddit.com/r/${subreddit}/.json`
-      console.log('getting posts')
 
       const response = await fetch(reqURL)
       const json = await response.json()
 
       console.log(json)
 
-      setPosts(json || [])
-
-      console.log(posts)
+      setPosts(json.data.children || [])
     }
 
     var post = {
@@ -307,12 +291,12 @@ const Reddit = () => {
           <button>Submit</button>
         </form>
 
-        
+        <Results posts={posts}/>
 
+        {/* <RedditPost post={post}></RedditPost>
         <RedditPost post={post}></RedditPost>
         <RedditPost post={post}></RedditPost>
-        <RedditPost post={post}></RedditPost>
-        <RedditPost post={post}></RedditPost>
+        <RedditPost post={post}></RedditPost> */}
       </div>
     )
 }
