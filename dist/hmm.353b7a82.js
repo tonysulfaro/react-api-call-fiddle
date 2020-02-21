@@ -2850,7 +2850,9 @@ const Reddit = () => {
     "media": null,
     "is_video": false
   };
-  return React.createElement("div", null, React.createElement(RedditPost, {
+  return React.createElement("div", {
+    className: "search-params"
+  }, React.createElement(RedditPost, {
     post: post
   }), React.createElement(RedditPost, {
     post: post

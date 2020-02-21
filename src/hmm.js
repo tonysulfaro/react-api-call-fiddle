@@ -1,4 +1,6 @@
-import { useState } from "react"
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import useDropdown from "./useDropdown";
 
 const RedditPost = ({post}) => {
 
@@ -16,11 +18,13 @@ const RedditPost = ({post}) => {
 
 const Reddit = () => {
 
-    // const [subreddit, updateSubreddit] = useState("all")
+    const [subreddit, SubredditDropdown] = useDropdown("Subreddit", "all", ["all", "askreddit"])
 
     async function requestPosts(){
       var reqURL = `https://www.reddit.com/r/${subreddit}/.json`
       console.log('getting posts')
+
+      const {subreddits} = await fetch(reqURL)
     }
 
     var post = {
@@ -282,12 +286,15 @@ const Reddit = () => {
       }
 
     return (
-        <div>
-            <RedditPost post={post}></RedditPost>
-            <RedditPost post={post}></RedditPost>
-            <RedditPost post={post}></RedditPost>
-            <RedditPost post={post}></RedditPost>
-        </div>
+      <div className="search-params">
+
+        <SubredditDropdown></SubredditDropdown>
+
+        <RedditPost post={post}></RedditPost>
+        <RedditPost post={post}></RedditPost>
+        <RedditPost post={post}></RedditPost>
+        <RedditPost post={post}></RedditPost>
+      </div>
     )
 }
 
