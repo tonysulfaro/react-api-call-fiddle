@@ -6,7 +6,7 @@ import Results from "./Results";
 const Reddit = () => {
 
     const [posts, setPosts] = useState([])
-    const [subreddit, SubredditDropdown] = useDropdown("Subreddit", "all", ["all", "askreddit","funny", "pics", "videos"])
+    const [subreddit, SubredditDropdown] = useDropdown("Subreddit", "all", ["all", "askreddit","funny", "pics", "reactjs", "videos"])
 
     async function requestPosts(){
       var reqURL = `https://www.reddit.com/r/${subreddit}/.json`
