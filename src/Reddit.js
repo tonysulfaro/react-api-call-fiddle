@@ -20,10 +20,6 @@ const Reddit = () => {
       setPosts(json.data.children || [])
     }
 
-    function onSearchChange(event){
-      setSearchTerm(event.target.value)
-    }
-
     return (
       <div className="search-params">
 
