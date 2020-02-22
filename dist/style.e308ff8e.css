@@ -29,4 +29,10 @@ a {
     color: black;
 }
 
+input, label, select, button {
+    margin-left: 1em;
+    padding: 1em;
+    border-radius: 5px;
+}
+
 /*# sourceMappingURL=/style.e308ff8e.css.map */
