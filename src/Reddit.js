@@ -39,11 +39,6 @@ const Reddit = () => {
         </form>
 
         <Results posts={posts}/>
-
-        {/* <RedditPost post={post}></RedditPost>
-        <RedditPost post={post}></RedditPost>
-        <RedditPost post={post}></RedditPost>
-        <RedditPost post={post}></RedditPost> */}
       </div>
     )
 }

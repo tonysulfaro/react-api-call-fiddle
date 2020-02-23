@@ -8,7 +8,7 @@ const RedditPost = ({post}) => {
             <h2>{post.title}</h2>
             <p><img src={post.thumbnail} alt={post.title}/></p>
             <p><strong>/r/{post.subreddit}</strong></p>
-            <p>Socre: {post.score}</p>
+            <p>Score: {post.score}</p>
             <p>Comments: {post.num_comments}</p>
       </div>
       </a>
