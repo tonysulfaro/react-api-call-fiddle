@@ -51,7 +51,7 @@ const Reddit = () => {
 const App = () => {
     return (
       <div className="container">
-        <h1>Reddit Front Page</h1>
+        <h1>Reddit Posts</h1>
         <Reddit></Reddit>
 
       </div>
