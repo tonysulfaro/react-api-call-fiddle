@@ -20,11 +20,15 @@ const Reddit = () => {
       setPosts(json.data.children || [])
     }
 
+    if (posts == ''){
+      requestPosts()
+    }
+
     return (
       <div className="search-params">
 
         <form
-          onSubmit = { e => {
+          onSubmit ={ e => {
             e.preventDefault()
             requestPosts()
           }}
